@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #eef2f7;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            width: 350px;
+            margin: 80px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 90%;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2c80b4;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h1>Electricity Consumption Classifier</h1>
+            <h2>Enter your monthly usage (kWh)</h2>
+
+            <p>
+                This tool classifies your electricity consumption based on standard usage categories.
+            </p>
+
+            <input type="number" id="kwhInput" placeholder="Enter kWh">
+            <button onclick="classify()">Classify</button>
+
+            <p> 
+                Learn more:
+                <a href="https://www.energy.gov">Energy Information</a>
+            </p>
+
+        <script>
+            function classify() {
+                let kwh = document.getElementById("kwhInput").value;
+                kwh = Number(kwh);
+                
+                if (kwh < 0) {
+                    alert("Error: Input cannot be negative!")
+                } else if (kwh >= 0 && kwh <= 100) {
+                    alert("Lifeline Consumer: Discounted electricity rates");
+                } else if (kwh > 100 && kwh <= 200) {
+                    alert("Low Consumption: Normal residential rate");
+                } else if (kwh > 200 && kwh <= 300) {
+                    alert("Average Consumption: Typical electricity usage");
+                } else if (kwh > 300 && kwh <=500) {
+                    alert("High Consumption: Higher electricity usage");
+                } else {
+                    alert("Very High Consumption: Heavy electricity users")
+                }
+            }
+        </script>
+    </div>
+    
+</body>
+</html>
